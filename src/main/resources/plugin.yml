@@ -1,0 +1,9 @@
+name: BetterJoin
+version: '${version}'
+main: me.calrl.betterjoin.BetterJoin
+api-version: '1.21'
+prefix: [BetterJoin]
+load: STARTUP
+authors: [cal]
+description: Join / Leave handler
+website: cal.ceo
