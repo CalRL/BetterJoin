@@ -1,0 +1,32 @@
+# MINIMESSAGE SUPPORT FOR COLORS AND DECO
+# ONLY MINI MESSAGE PLACEHOLDER IS <name> (PLAYER DISPLAYNAME)
+# PAPI SUPPORT FOR PLACEHOLDERS
+Groups:
+  group1:
+    permission: betterjoin.group1
+    join:
+      message:
+        enabled: true
+        text: '%luckperms_prefix%<Rainbow><name> joined!'
+      firework:
+        enabled: true
+        type: BALL
+        power: 1 # 1 to 3
+        color: WHITE
+      title:
+        enabled: true
+        # MINIMESSAGE SUPPORT
+        # USE PAPI FOR PLACEHOLDERS
+        title: 'Hello!'
+        subtitle: 'Configure me'
+        # 3 ANIMATIONS IN MILLISECONDS.
+        fadein: 500
+        stay: 2500
+        fadeout: 500
+      commands:
+        - '[player] spawn'
+        - '[console] broadcast'
+    leave:
+      message:
+        enabled: true
+        text: '%luckperms_prefix%<Rainbow><name> left!'

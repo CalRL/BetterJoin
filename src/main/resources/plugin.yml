@@ -2,8 +2,15 @@ name: BetterJoin
 version: '${version}'
 main: me.calrl.betterjoin.BetterJoin
 api-version: '1.21'
-prefix: [BetterJoin]
+prefix: BetterJoin
 load: STARTUP
 authors: [cal]
 description: Join / Leave handler
 website: cal.ceo
+
+permissions:
+  betterjoin.vanish:
+    default: op
+
+softdepend:
+  - PlaceholderAPI
