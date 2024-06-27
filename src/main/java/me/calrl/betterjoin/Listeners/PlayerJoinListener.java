@@ -37,19 +37,23 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
         FileConfiguration config = BetterJoin.getInstance().getConfig();
+        if(player.hasPlayedBefore()) {
+            ConfigurationSection groupsSection = config.getConfigurationSection("Groups");
+            if (groupsSection != null) {
+                Set<String> groups = groupsSection.getKeys(false);
 
-        ConfigurationSection groupsSection = config.getConfigurationSection("Groups");
-        if (groupsSection != null) {
-            Set<String> groups = groupsSection.getKeys(false);
-
-            for (String group : groups) {
-                String permission = groupsSection.getString(group + ".permission");
-                if (permission != null && player.hasPermission(permission)) {
-                    handleJoin(event, groupsSection.getConfigurationSection(group));
-                    break; // Exit loop after applying the first matching group
+                for (String group : groups) {
+                    String permission = groupsSection.getString(group + ".permission");
+                    if (permission != null && player.hasPermission(permission)) {
+                        handleJoin(event, groupsSection.getConfigurationSection(group));
+                        break; // Exit loop after applying the first matching group
+                    }
                 }
             }
+        } else {
+
         }
+
     }
 
     @EventHandler
